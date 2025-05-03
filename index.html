@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Photos Manager</title>
+
+	<link rel="icon" href="assets/logo.svg" type="image/x-icon">
+
+	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/layout.css">
+	<link rel="stylesheet" href="styles/images.css">
+
+	<script src="src/app.js" type="module" defer></script>
+</head>
+<body>
+	<input hidden id="input" type="file" accept=".jpg, .jpeg, .png, .gif, .bmp, .webp, .avif, .tiff, .ico" multiple>
+
+	<div id="header" class="section"></div>
+	<div id="sidebar" class="section"></div>
+	<div id="content" class="section">
+		<div id="upload">Upload Files</div>
+
+		<div id="images"></div>
+	</div>
+</body>
+</html>

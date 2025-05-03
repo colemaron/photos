@@ -1,0 +1,19 @@
+.section {
+	border: 2px solid black;
+}
+
+#header {
+	grid-area: header;
+}
+
+#sidebar {
+	grid-area: sidebar;
+}
+
+#content {
+	grid-area: content;
+
+	padding: 2rem;
+
+	overflow-y: scroll;
+}
