@@ -3,6 +3,10 @@
 ## Project Scenario
 If a user wants to stop having images spread between devices like their phone, computer, smart fridge, this would allow them to import and keep them in a centralized location to easily browse and interact with
 
+## Workload
+- Cole - Working on database and various photo managing options
+- Corbin - Search filtering and organization tools along with html and styles
+
 ## Frontend Stack
 Made using vanilla web technologies
 1. **HTML** - sets up the skeleton to hold all of the visual elements
@@ -23,8 +27,8 @@ Made using vanilla web technologies
 	- assign custom folder icons / colors for orgaization
 
 ## Functionalities
-- [ ] Import personal image files
+- [x] Import personal image files
 - [ ] Theme / colors customization
 - [ ] Folder and tags for easy searching
 - [ ] Dynamic rendering to accomodate any sized image
-- [ ] Real-time search, filter, and sort options
+- [x] Real-time search, filter, and sort options

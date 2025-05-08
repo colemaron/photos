@@ -1,5 +1,5 @@
 import * as convert from "../inc/convert.js";
-import Image from "../inc/images.js";
+import Image from "../inc/image.js";
 
 //////////////////
 // import files //
@@ -10,13 +10,18 @@ import Image from "../inc/images.js";
 const images = document.getElementById("images");
 
 async function uploadFiles(files) {
+	const instances = [];
+
 	for (const file of files) {
 		const src = await convert.fileToBase64(file);
-
 		const image = new Image(file.name, src);
 
 		image.insert(images);
+		instances.push(image);
 	}
+
+	const event = new CustomEvent("uploaded", { detail: instances });
+	document.dispatchEvent(event);
 }
 
 // click to import
@@ -30,7 +35,7 @@ input.onchange = async event => {
 	uploadFiles(event.target.files);
 }
 
-upload.onclick = event => {
+upload.onclick = async event => {
 	event.preventDefault();
 
 	input.click();

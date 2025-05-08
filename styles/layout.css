@@ -1,19 +1,67 @@
 .section {
-	border: 2px solid black;
+	
 }
 
 #header {
 	grid-area: header;
+
+	padding: 2rem;
+
+	display: flex;
+	align-items: center;
+
+	border-bottom: 2px solid #3e3e42;
+
+	> #search {
+		width: 75%;
+		border: 2px #007acc;
+		border-radius: 1rem;
+		padding: 1rem 2rem;
+
+		background-color: #2d2d30;
+		color: white;
+		outline: none;
+
+		box-shadow: 0 0 0 2px transparent;
+
+		&:hover {
+			background-color:#3e3e42;
+		}
+
+		&:focus {
+			box-shadow: 0 0 2px 2px #007acc;
+		}
+
+		transition: 150ms;
+
+		svg {
+			cursor: pointer;
+			width: 2rem;
+			height: 2rem;
+			fill: #007acc;
+		}
+	}
 }
+		  
 
 #sidebar {
 	grid-area: sidebar;
+
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	box-shadow: 0 0 0 2px #007acc, 0 0 1rem #007acc;
 }
 
 #content {
 	grid-area: content;
 
-	padding: 2rem;
+	padding: 1rem;
 
-	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	overflow-y: auto;
 }

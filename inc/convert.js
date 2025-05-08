@@ -8,5 +8,5 @@ export function fileToBase64(file) {
 }
 
 export function base64ToFile(base64) {
-
+	return fetch(base64).then(result => result.blob());
 }

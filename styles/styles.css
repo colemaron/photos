@@ -4,10 +4,13 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+
+	font-family: Poppins, monospace;
+	color: white;
 }
 
 body {
-	font-family: Poppins, monospace;
+	user-select: none;
 
 	display: grid;
 	grid-template-areas: 
@@ -17,7 +20,9 @@ body {
 	grid-template-columns: minmax(200px, 15vw) 1fr;
 	grid-template-rows: 100px 1fr;
 
+	overflow: hidden;
 	height: 100vh;
+	background: radial-gradient(circle at center,  	#252526 0, #1e1e1e 100%);
 }
 
 input[type="file"] {
