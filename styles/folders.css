@@ -22,6 +22,7 @@
 	border: none;
 
 	> svg { fill: #007acc; }
+	> * { pointer-events: none; }
 
 	&:hover {
 		background-color: #007acc;
@@ -32,7 +33,7 @@
 
 	&.selected {
 		background-color: #007acc;
-		border: 2px solid white;
+		box-shadow: 0 0 0 2px white;
 		
 		> svg { fill: white; }
 	}
