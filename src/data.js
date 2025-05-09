@@ -1,3 +1,4 @@
+import * as tools from "../inc/tools.js";
 import Image from "../inc/image.js";
 
 /////////////////////
@@ -41,24 +42,13 @@ const sampleFolders = [
 	},
 ]
 
-async function loadSVG(container, src) {
-	const response = await fetch(src);
-	const text = await response.text();
-
-	const parser = new DOMParser();
-	const doc = parser.parseFromString(text, "image/svg+xml");
-	const element = doc.documentElement;
-	
-	container.appendChild(element);
-}
-
 function loadFolderElement(folder) {
 	const div = document.createElement("button");
 	div.classList.add("folder");
 	div.dataset.name = folder.name;
 	folders.appendChild(div);
 
-	loadSVG(div, folder.icon).then(() => {
+	tools.insertSVG(folder.icon, div).then(() => {
 		const p = document.createElement("p");
 		p.innerText = folder.name;
 		div.appendChild(p);
