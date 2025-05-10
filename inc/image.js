@@ -1,12 +1,12 @@
 class Image {
 	static loaded = [];
 
-	constructor(name, src) {
+	constructor(name, src, folder, tags) {
 		this.name = name;
 		this.src = src;
 
-		this.folder = null;
-		this.tags = [];
+		this.folder = folder || 2; // 2 is id of default
+		this.tags = tags || [];
 
 		// update info
 
@@ -18,6 +18,7 @@ class Image {
 		img.src = this.src;
 		
 		img.dataset.name = this.name;
+		img.dataset.id = this.folder;
 
 		parent.appendChild(img);
 	}

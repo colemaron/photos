@@ -16,6 +16,9 @@ async function uploadFiles(files) {
 		const src = await convert.fileToBase64(file);
 		const image = new Image(file.name, src);
 
+		const folder = document.querySelector(".folder.selected");
+		image.folder = folder.dataset.id;
+
 		image.insert(images);
 		instances.push(image);
 	}

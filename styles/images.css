@@ -17,14 +17,14 @@
 	align-items: center;
 
 	> svg {
-		fill: black;
+		fill: var(--color1);
 		width: 50%;
 		height: 50%;
 	}
 	
 	&:hover {
-		background-color: #007acc;
-		> svg { fill: white }
+		background-color: var(--color1);
+		> svg { fill: white; }
 	}
 
 	&:active {
@@ -45,7 +45,7 @@
 		width: 100%;
 		object-fit: cover;
 
-		background-color: #2d2d30;
+		background-color: var(--color2);
 		border-radius: 1rem;
 
 		&:hover {

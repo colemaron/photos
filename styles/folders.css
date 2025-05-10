@@ -4,6 +4,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.75rem;
+
+	overflow-y: auto;
 }
 
 .folder {
@@ -17,25 +19,43 @@
 	align-items: center;
 	gap: 0.5rem;
 
-	background-color: #252526;
-
+	background-color: var(--color3);
 	border: none;
 
-	> svg { fill: #007acc; }
+	> svg { fill: var(--color1); }
 	> * { pointer-events: none; }
 
 	&:hover {
-		background-color: #007acc;
-		color: white;
-		
-		> svg { fill: white; }
+		background-color: var(--color1);
+
+		> p { color: var(--color7) }
+		> svg { fill: var(--color7); }
 	}
 
 	&.selected {
-		background-color: #007acc;
-		box-shadow: 0 0 0 2px white;
+		background-color: var(--color1);
+		box-shadow: 0 0 0 2px var(--color6);
+
+		> p { color: var(--color7) }
+		> svg { fill: var(--color7); }
+	}
+
+	transition: 100ms;
+}
+
+#add-folder {
+	cursor: pointer;
+
+	background-color: var(--color3);
+	> svg { fill: var(--color1); }
+
+	&:hover {
+		background-color: var(--color1);
+		> svg { fill: var(--color7); }
+	}
+
+	&:active {
 		
-		> svg { fill: white; }
 	}
 
 	transition: 100ms;
