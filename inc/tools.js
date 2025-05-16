@@ -2,6 +2,8 @@ export function insertSVG(src, container) {
 	return fetch(src)
 	.then(response => response.text())
 	.then(svgText => {
+		svgText = svgText.replace(/&middot;/g, '·');
+
 		const parser = new DOMParser();
 		const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
 		const svgElement = svgDoc.documentElement;
