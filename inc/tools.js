@@ -1,14 +1,13 @@
 export function insertSVG(src, container) {
-	fetch(src)
-		.then(response => response.text())
-		.then(text => {
-			const parser = new DOMParser();
-			const doc = parser.parseFromString(text, "image/svg+xml");
-			const element = doc.documentElement;
+	return fetch(src)
+	.then(response => response.text())
+	.then(svgText => {
+		const parser = new DOMParser();
+		const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+		const svgElement = svgDoc.documentElement;
 
-			container.appendChild(element);
-		})
-		.catch(error => console.error("Error loading SVG:", error));
+		container.appendChild(svgElement);
+	});
 }
 
 const folders = document.getElementById("folders");
