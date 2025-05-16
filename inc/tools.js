@@ -1,5 +1,5 @@
 export async function insertSVG(src, container) {
-	return fetch(src)
+	return fetch("../" + src)
 	.then(response => response.text())
 	.then(svgText => {
 		svgText = svgText.replace(/&middot;/g, '·');
