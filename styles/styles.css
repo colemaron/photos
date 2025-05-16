@@ -22,6 +22,10 @@
 	--color5: #3e3e42;
 	--color6: #ffffff;
 	--color7: #000000;
+	
+	.folder > img, .folder > svg {
+		filter: invert(1);
+	}
 
 	* { color: var(--color6); }
 

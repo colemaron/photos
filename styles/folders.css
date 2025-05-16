@@ -23,12 +23,9 @@
 	border: none;
 
 	> * { pointer-events: none; }
-	> svg { fill: var(--color1); }
 
 	&:hover {
 		background-color: var(--color1);
-		> p { color: var(--color3); }
-		> svg { fill: var(--color3); }
 	}
 
 	transition: 100ms;
