@@ -1,11 +1,12 @@
 class Image {
 	static loaded = [];
 
-	constructor(name, src, folder, tags) {
+	constructor(name, src, folder, id, tags) {
 		this.name = name;
 		this.src = src;
 
-		this.folder = folder || 2; // 2 is id of default
+		this.folder = folder
+		this.id = id;
 		this.tags = tags || [];
 
 		// update info
@@ -14,13 +15,18 @@ class Image {
 	}
 
 	insert(parent) {
+		const div = document.createElement("div");
+		div.classList.add("image");
+
 		const img = document.createElement("img");
 		img.src = this.src;
+		div.appendChild(img);
 		
-		img.dataset.name = this.name;
-		img.dataset.id = this.folder;
+		div.dataset.name = this.name;
+		div.dataset.folder = this.folder;
+		div.dataset.id = this.id;
 
-		parent.appendChild(img);
+		parent.appendChild(div);
 	}
 }
 

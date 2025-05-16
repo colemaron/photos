@@ -1,4 +1,5 @@
 import * as convert from "../inc/convert.js";
+import * as Tools from "../inc/tools.js";
 import Image from "../inc/image.js";
 
 //////////////////
@@ -14,10 +15,9 @@ async function uploadFiles(files) {
 
 	for (const file of files) {
 		const src = await convert.fileToBase64(file);
-		const image = new Image(file.name, src);
-
+		
 		const folder = document.querySelector(".folder.selected");
-		image.folder = folder.dataset.id;
+		const image = new Image(file.name, src, folder.dataset.id, Tools.uuid());
 
 		image.insert(images);
 		instances.push(image);

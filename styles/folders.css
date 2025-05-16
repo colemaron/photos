@@ -22,41 +22,30 @@
 	background-color: var(--color3);
 	border: none;
 
-	> svg { fill: var(--color1); }
 	> * { pointer-events: none; }
+	> svg { fill: var(--color1); }
 
 	&:hover {
 		background-color: var(--color1);
-
-		> p { color: var(--color7) }
-		> svg { fill: var(--color7); }
-	}
-
-	&.selected {
-		background-color: var(--color1);
-		box-shadow: 0 0 0 2px var(--color6);
-
-		> p { color: var(--color7) }
-		> svg { fill: var(--color7); }
+		> p { color: var(--color3); }
+		> svg { fill: var(--color3); }
 	}
 
 	transition: 100ms;
 }
 
+.folder.selected {
+	box-shadow: 0 0 0 2px var(--color1);
+
+	transition: 50ms ease-out;
+}
+
 #add-folder {
-	cursor: pointer;
-
-	background-color: var(--color3);
-	> svg { fill: var(--color1); }
-
 	&:hover {
-		background-color: var(--color1);
-		> svg { fill: var(--color7); }
-	}
+		> svg {
+			rotate: 360deg;
 
-	&:active {
-		
+			transition: 250ms ease-out;
+		}
 	}
-
-	transition: 100ms;
 }

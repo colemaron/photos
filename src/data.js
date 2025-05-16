@@ -21,12 +21,6 @@ const defaultFolders = [
 		icon: "../assets/icons/folder-open.svg",
 		images: []
 	},
-	{
-		id: Tools.uuid(),
-		name: "Favorites",
-		icon: "../assets/icons/favorite.svg",
-		images: []
-	}
 ]
 
 function loadData() {
@@ -51,16 +45,12 @@ function loadData() {
 			const data = event.target.result;
 
 			for (const folder of data.folders) {
-				const folderElement = Tools.loadFolderElement(folder);
+				Tools.loadFolderElement(folder);
 
-				if (folder.name === "Favorites") {
-					folderElement.style.backgroundColor = "red";
-				} else if (folder.name === "Default") {
-					folderElement.style.backgroundColor = "green";
-				}
+				console.log(folder);
 
 				for (const image of folder.images) {
-					const instance = new Image(image.name, image.src, folder.id, image.tags);
+					const instance = new Image(image.name, image.src, folder.id, image.id, image.tags);
 					
 					instance.insert(images);
 				}
@@ -78,7 +68,6 @@ loadData()
 //////////////////////
 
 const addFolder = document.getElementById("add-folder");
-
 addFolder.addEventListener("click", () => {
 	const request = indexedDB.open("photos-manager", 1);
 	
@@ -118,11 +107,11 @@ document.addEventListener("uploaded", ({ detail }) => {
 			const data = event.target.result;
 			const selected = document.querySelector(".folder.selected");
 
+			console.log(selected);
+
 			for (const image of detail) {
 				if (selected) {
 					const id = selected.dataset.id;
-
-					console.log(selected);
 
 					image.folder = id;
 					data.folders.find(folder => folder.id == id).images.push(image)
@@ -136,3 +125,37 @@ document.addEventListener("uploaded", ({ detail }) => {
 		}
 	}
 });
+
+///////////////////
+// delete images //
+///////////////////
+
+const hoverButtons = document.getElementById("hover-buttons");
+const deleteButton = document.getElementById("delete");
+
+deleteButton.addEventListener("click", () => {
+	const image = hoverButtons.parentElement;
+	const folderId = image.dataset.folder;
+
+	const request = indexedDB.open("photos-manager", 1);
+	
+	request.onsuccess = event => {
+		const db = event.target.result;
+		const transaction = db.transaction("users", "readwrite");
+		const users = transaction.objectStore("users");
+
+		console.log(users);
+
+		users.get(1).onsuccess = event => {
+			const data = event.target.result;
+			const location = data.folders.find(folder => folder.id == folderId);
+			const index = location.images.findIndex(img => img.id == image.dataset.id);
+
+			location.images.splice(index, 1);
+
+			users.put(data);
+		}
+	}
+
+	image.remove();
+})

@@ -15,7 +15,7 @@ folders.addEventListener("click", ({ target }) => {
 		}
 
 		for (const image of images.children) {
-			if (image.dataset.id === target.dataset.id) {
+			if (image.dataset.folder === target.dataset.id) {
 				image.classList.remove("hidden");
 			} else {
 				image.classList.add("hidden");
@@ -31,7 +31,7 @@ folders.addEventListener("click", ({ target }) => {
 const addFolder = document.getElementById("add-folder");
 
 addFolder.addEventListener("click", () => {
-	const folder = Tools.loadFolderElement({ name: "New Folder", icon: "../assets/icons/folder.svg", images: [] });
+	const folder = Tools.loadFolderElement({ id: Tools.uuid(), name: "New Folder", icon: "../assets/icons/folder.svg", images: [] });
 
 	folder.click();
 });

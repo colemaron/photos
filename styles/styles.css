@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 [data-theme="light"] {
-	--color1: #3b3f61;
+	--color1: #1f79ff;
 	--color2: #9595a2;
 	--color3: #caccdc;
 	--color4: #e4e5f1;
@@ -15,7 +15,7 @@
 }
 
 [data-theme="dark"] {
-	--color1: #007acc;
+	--color1: #0095ff;
 	--color2: #2d2d30;
 	--color3: #252526;
 	--color4: #1e1e1e;
@@ -49,17 +49,30 @@ body {
 
 	overflow: hidden;
 	height: 100vh;
-	background: radial-gradient(circle at center,  	var(--color3) 0, var(--color4) 100%);
+	background-color: var(--color4);
 }
 
 #theme-toggle {
-	width: 2rem;
-	height: 2rem;
+	cursor: pointer;
 
-	background-color: transparent;
+	width: 3rem;
+	aspect-ratio: 1;
 	border: none;
 
-	cursor: pointer;
+	background-color: var(--color3);
+	border-radius: 50%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:active {
+		rotate: 45deg;
+		
+		transition: 50ms ease-out;
+	}
+
+	transition: 100ms;
 }
 
 input[type="file"] {
