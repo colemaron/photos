@@ -1,12 +1,14 @@
-export async function insertSVG(src, container) {
-	const response = await fetch(src);
-	const text = await response.text();
+export function insertSVG(src, container) {
+	fetch(src)
+		.then(response => response.text())
+		.then(text => {
+			const parser = new DOMParser();
+			const doc = parser.parseFromString(text, "image/svg+xml");
+			const element = doc.documentElement;
 
-	const parser = new DOMParser();
-	const doc = parser.parseFromString(text, "image/svg+xml");
-	const element = doc.documentElement;
-	
-	container.appendChild(element);
+			container.appendChild(element);
+		})
+		.catch(error => console.error("Error loading SVG:", error));
 }
 
 const folders = document.getElementById("folders");
