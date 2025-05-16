@@ -1,4 +1,4 @@
-export function insertSVG(src, container) {
+export async function insertSVG(src, container) {
 	return fetch(src)
 	.then(response => response.text())
 	.then(svgText => {
